@@ -6,5 +6,6 @@
 
 ## Workflow Diagram [in-works]
 
+![Workflow Illustration](group4_flowchart_diagram.png)
 
 ## Results
