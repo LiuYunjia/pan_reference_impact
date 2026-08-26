@@ -36,6 +36,13 @@ bash run_winnowmap.sh hs1 2>&1 | tee run_hs1.log
 
 Output: `Group4_2026:/results/winnowmap/<build>/`
 
+If Sniffles needs to be re-run against an already-aligned winnowmap BAM (e.g. after a tool-version fix) without redoing alignment, use `rerun_sniffles_winnowmap.sh` instead — it finds the existing BAM/reference on the workstation, rebuilds the tool env (pinned to Python 3.10), and re-calls:
+
+```bash
+dx download Group4_2026:/scripts/rerun_sniffles_winnowmap.sh
+bash rerun_sniffles_winnowmap.sh hg17 2>&1 | tee rerun_sniffles_hg17.log
+```
+
 ### 2. Minimap2 arm
 
 Alignment runs as the `minimap2_hg002` DNAnexus applet (BAM lands at `Group4_2026:/results/minimap2/<build>/`). SV calling on that BAM:
