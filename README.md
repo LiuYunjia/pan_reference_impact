@@ -12,7 +12,7 @@ Structural variant detection is always relative to a reference assembly, and whi
 
 ## Methodology
 
-Two arms — **winnowmap→sniffles** and **minimap2→sniffles** — are run on identical reads against each reference build (e.g. `hs1`, `hg38`), so SV calls can be compared across references/aligners.
+Two arms — **winnowmap→sniffles** and **minimap2→sniffles** — are run on identical reads against each reference build (e.g. `hs1`, `hg38`, `hg19`, `hg18`, `hg17`, `hg16`, `hg15`), so SV calls can be compared across references/aligners.
 
 ### 0. Read subset (fixed across both arms)
 
