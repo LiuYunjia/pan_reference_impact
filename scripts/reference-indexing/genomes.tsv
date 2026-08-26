@@ -1,0 +1,8 @@
+build	assembly	source_type	source_url
+hs1	T2T-CHM13 v2.0	fa.gz	https://hgdownload.soe.ucsc.edu/goldenPath/hs1/bigZips/hs1.fa.gz
+hg38	GRCh38	fa.gz	https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
+hg19	GRCh37	fa.gz	https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
+hg18	NCBI36	fa.gz	https://hgdownload.soe.ucsc.edu/goldenPath/hg18/bigZips/hg18.fa.gz
+hg17	NCBI35	fa.gz	https://hgdownload.soe.ucsc.edu/goldenPath/hg17/bigZips/hg17.fa.gz
+hg16	NCBI34	fa.gz	https://hgdownload.soe.ucsc.edu/goldenPath/hg16/bigZips/hg16.fa.gz
+hg15	NCBI33 (April 2003)	chromFa.zip	https://hgdownload.soe.ucsc.edu/goldenPath/hg15/bigZips/chromFa.zip

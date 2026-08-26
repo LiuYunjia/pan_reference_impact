@@ -1,0 +1,113 @@
+{
+  "name": "minimap2_hg002",
+  "title": "HG002 minimap2 whole-genome mapping",
+  "summary": "Maps a validated fixed HG002 CCS cell subset to one human reference",
+  "version": "0.1.0",
+  "dxapi": "1.0.0",
+  "inputSpec": [
+    {
+      "name": "reads",
+      "label": "Selected CCS FASTQs",
+      "class": "array:file",
+      "patterns": ["*.fastq", "*.fastq.gz", "*.fq", "*.fq.gz"]
+    },
+    {
+      "name": "subset_manifest",
+      "label": "Authoritative selected-cell list",
+      "class": "file"
+    },
+    {
+      "name": "index_bundle",
+      "label": "Minimap2 index archive",
+      "class": "file",
+      "patterns": ["*.tar.zst"]
+    },
+    {
+      "name": "expected_index_sha256",
+      "label": "Expected index-archive SHA-256",
+      "class": "string"
+    },
+    {
+      "name": "build",
+      "label": "Reference build",
+      "class": "string"
+    },
+    {
+      "name": "mapper_threads",
+      "label": "Minimap2 threads",
+      "class": "int",
+      "default": 26
+    },
+    {
+      "name": "sort_threads",
+      "label": "Additional samtools sort threads",
+      "class": "int",
+      "default": 4
+    },
+    {
+      "name": "sort_memory_gib",
+      "label": "Memory per samtools sort thread in GiB",
+      "class": "int",
+      "default": 3
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "bam",
+      "label": "Coordinate-sorted whole-genome BAM",
+      "class": "file",
+      "patterns": ["*.bam"]
+    },
+    {
+      "name": "bai",
+      "label": "BAM index",
+      "class": "file",
+      "patterns": ["*.bam.bai"]
+    },
+    {
+      "name": "flagstat",
+      "label": "SAMtools flagstat",
+      "class": "file",
+      "patterns": ["*.flagstat.txt"]
+    },
+    {
+      "name": "checksum",
+      "label": "Output checksums",
+      "class": "file",
+      "patterns": ["*.sha256"]
+    },
+    {
+      "name": "provenance",
+      "label": "Mapping provenance",
+      "class": "file",
+      "patterns": ["*.provenance.txt"]
+    },
+    {
+      "name": "resolved_subset",
+      "label": "Resolved input FASTQ manifest",
+      "class": "file",
+      "patterns": ["*.reads.tsv"]
+    }
+  ],
+  "runSpec": {
+    "interpreter": "bash",
+    "file": "src/11-dnanexus-minimap2-map.sh",
+    "distribution": "Ubuntu",
+    "release": "24.04",
+    "version": "0",
+    "systemRequirements": {
+      "main": {
+        "instanceType": "mem2_ssd1_v2_x32"
+      }
+    },
+    "restartableEntryPoints": "all",
+    "timeoutPolicy": {
+      "*": {
+        "hours": 24
+      }
+    }
+  },
+  "access": {
+    "network": ["*"]
+  }
+}
